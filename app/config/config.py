@@ -9,11 +9,13 @@ load_dotenv()
 
 class Config(BaseSettings):
     PORT: int = cast(int, os.getenv("PORT", 8000))
+    API_KEY: str = cast(str, os.getenv("API_KEY"))
     ALLOWED_ORIGINS_REGISTRY: Optional[str] = cast(
         str, os.getenv("ALLOWED_ORIGINS_REGISTRY", False)
     )
     MONGODB_URI: str = cast(str, os.getenv("MONGODB_URI"))
     MONGODB_DATABASE: str = cast(str, os.getenv("MONGODB_DATABASE"))
+
     class Config:
         case_sensitive = False
 
